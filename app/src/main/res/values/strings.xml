@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Shop Dummy</string>
+    <string name="view_products">View Products</string>
+    <string name="products_list">Products List</string>
+    <string name="product_image">product image</string>
+    <string name="product_price">$%1$.1f</string>
+    <string name="description_format">Description:\n%s</string>
+    <string name="percentage_format">%.1f%%</string>
+    <string name="brand_format">Brand: %1$s</string>
+    <string name="min_order">Minimum Order Quantity: %1$s</string>
+    <string name="ratings_reviews">Ratings &amp; Reviews</string>
+    <string name="description">Description: No description available</string>
+    <string name="rating">4.5</string>
+    <string name="title">Powder Canister</string>
+    <string name="brand">Brand: Velvet Touch</string>
+    <string name="dis">-10%</string>
+    <string name="price">$12.99</string>
+    <string name="return_policy">Return Policy: 30 days</string>
+    <string name="order_quantity">Minimum Order Quantity: 1</string>
+</resources>
