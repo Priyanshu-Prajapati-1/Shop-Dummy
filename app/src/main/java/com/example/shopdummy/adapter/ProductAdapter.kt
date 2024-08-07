@@ -41,25 +41,23 @@ class ProductAdapter(
 
     private fun setViews(holder: ViewHolder, product: Product) {
 
-        holder.view.txtProductTitle.text = product.title
-        holder.view.txtProductRating.text = formatRating(product.rating)
-        holder.view.txtProductAvailability.text = product.availabilityStatus
-        holder.view.txtDiscount.text =
-            context.getString(R.string.percentage_format, product.discountPercentage)
-        holder.view.txtPrice.text = context.getString(R.string.product_price, product.price)
-
-        val imageLink = product.images[0]
         holder.view.apply {
-            Glide.with(holder.itemView.context)
-                .load(imageLink)
+            txtProductTitle.text = product.title
+            txtProductRating.text = formatRating(product.rating)
+            txtProductAvailability.text = product.availabilityStatus
+            txtDiscount.text =
+                context.getString(R.string.percentage_format, product.discountPercentage)
+            txtPrice.text = context.getString(R.string.product_price, product.price)
+            Glide.with(context)
+                .load(product.images[0])
                 .placeholder(R.drawable.loader)
-                .into(holder.view.imgProductImage)
-        }
+                .into(imgProductImage)
 
-        holder.view.llListItem.setOnClickListener {
-            val intent = Intent(context, ProductViewScreen::class.java)
-            intent.putExtra("productId", product.id.toString())
-            context.startActivity(intent)
+            llListItem.setOnClickListener {
+                val intent = Intent(context, ProductViewScreen::class.java)
+                intent.putExtra("productId", product.id.toString())
+                context.startActivity(intent)
+            }
         }
     }
 

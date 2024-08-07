@@ -75,25 +75,27 @@ class ProductViewScreen : AppCompatActivity() {
 
     private fun setProductDetails(product: Product?) {
         val imageLink = product?.images?.get(0) ?: ""
+
         binding.apply {
             Glide.with(this@ProductViewScreen)
                 .load(imageLink)
                 .placeholder(R.drawable.loader)
-                .into(binding.imgProduct)
+                .into(imgProduct)
+
+            txtTitle.text = product?.title ?: "UnKnown"
+            txtDescription.text = product?.description ?: "No description available"
+            txtDiscount.text = getString(
+                R.string.percentage_format,
+                product?.discountPercentage?.times(-1) ?: 0.0
+            )
+            txtPrice.text = getString(R.string.product_price, product?.price ?: 0.0)
+            txtBrand.text = getString(R.string.brand_format, product?.brand ?: "Unknown")
+            txtReturn.text = product?.returnPolicy ?: "No return policy available"
+            txtRating.text = formatRating(product?.rating ?: 0.0)
+            txtMinOrder.text =
+                getString(R.string.min_order, product?.minimumOrderQuantity.toString())
         }
 
-        binding.txtTitle.text = product?.title ?: ""
-        binding.txtDescription.text = product?.description ?: "No description available"
-        binding.txtDiscount.text = getString(
-            R.string.percentage_format,
-            product?.discountPercentage?.times((-1)) ?: 0.0
-        )
-        binding.txtPrice.text = getString(R.string.product_price, product?.price ?: 0.0)
-        binding.txtBrand.text = getString(R.string.brand_format, product?.brand ?: "Unknown")
-        binding.txtReturn.text = product?.returnPolicy ?: "No return policy available"
-        binding.txtRating.text = formatRating(product?.rating ?: 0.0)
-        binding.txtMinOrder.text =
-            getString(R.string.min_order, product?.minimumOrderQuantity.toString())
     }
 
     private fun showError(message: String) {

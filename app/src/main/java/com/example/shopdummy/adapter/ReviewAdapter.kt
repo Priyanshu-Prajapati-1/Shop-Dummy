@@ -28,10 +28,13 @@ class ReviewAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val review = reviewList[position]
 
-        holder.view.txtReviewerName.text = review.reviewerName
-        holder.view.txtReviewDate.text = formatDateTime(review.date)
-        holder.view.txtReviewComment.text = review.comment
-        holder.view.txtRating.text = formatRating(review.rating.toDouble())
+        holder.view.apply {
+            txtReviewerName.text = review.reviewerName
+            txtReviewDate.text = formatDateTime(review.date)
+            txtReviewComment.text = review.comment
+            txtRating.text = formatRating(review.rating.toDouble())
+        }
+
     }
 
     override fun getItemCount(): Int = reviewList.size
