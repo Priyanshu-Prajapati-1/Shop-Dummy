@@ -4,15 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.shopdummy.screens.productView.ProductViewScreen
 import com.example.shopdummy.R
 import com.example.shopdummy.databinding.ProductListItemBinding
 import com.example.shopdummy.models.Product
+import com.example.shopdummy.screens.productView.ProductViewScreen
 import com.example.shopdummy.utils.formatRating
 
 class ProductAdapter(
@@ -20,7 +19,7 @@ class ProductAdapter(
     private val productList: List<Product>,
 ) : RecyclerView.Adapter<ProductAdapter.ViewHolder>() {
 
-    var lastPosition = -1
+    private var lastPosition = -1
 
     inner class ViewHolder(var view: ProductListItemBinding) : RecyclerView.ViewHolder(view.root)
 
