@@ -45,7 +45,7 @@ class ProductAdapter(
             txtProductRating.text = formatRating(product.rating)
             txtProductAvailability.text = product.availabilityStatus
             txtDiscount.text =
-                context.getString(R.string.percentage_format, product.discountPercentage)
+                context.getString(R.string.percentage_format, product.discountPercentage * -1)
             txtPrice.text = context.getString(R.string.product_price, product.price)
             Glide.with(context)
                 .load(product.images[0])
